@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fixed Pop-up Box Example</title>
+    <style>
+      #popup-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        display: none; /* Hide the pop-up box by default */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="show-popup">Show Pop-up Box</button>
+
+    <div id="popup-box">
+      <p>Here is some pop-up box content.</p>
+    </div>
+
+    <script>
+      // Get a reference to the pop-up box
+      var popupBox = document.getElementById('popup-box');
+
+      // Show the pop-up box when the button is clicked
+      document.getElementById('show-popup').addEventListener('click', function() {
+        popupBox.style.display = 'block';
+      });
+
+      // Hide the pop-up box when the user clicks outside of it
+      window.addEventListener('click', function(event) {
+        if (event.target == popupBox) {
+          popupBox.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="static\manage.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+    
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="static\logo.jpg" alt="logo">
+                </span>
+    
+                <div class="text logo-text">
+                    <span class="name">Automated</span>
+                    <span class="profession">Stock Management</span>
+                </div>
+            </div>
+    
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+    
+        <div class="menu-bar">
+            <div class="menu">
+    
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+    
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/dashboard">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                            <!-- <button class="button-65" role="button"> Dashboard </button> -->
+                        
+                          
+                        
+                    </li>
+                    <!-- <form action="/billing" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/billing_system">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Billing System</span>
+                            <!-- <button class="button-65" role="button" type="submit"> Billing System </button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+                    <!-- <form action="/myorders" method="post"></form> -->
+                    <li class="nav-link">
+                        <a href="/myorders">
+                            <i class='bx bx-shopping-bag icon'></i>
+                            <span class="text nav-text">My Orders</span>
+                            <!-- <button class="button-65" role="button"> My Orders </button>
+                        </form> -->
+                    </a>
+                    </li>
+                    <!-- <form action="/invoicepage" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/invoicepage">
+                            <i class='bx bx-file icon' ></i>
+                            <span class="text nav-text">Invoices</span>
+                            <!-- <button class="button-65" role="button"> Invoices </button>
+                        </form> -->
+                    </a>
+                    </li>
+    
+                    <li class="nav-link">
+                        <a href="/defective">
+                            <i class='bx bx-exit bx-rotate-180 icon' ></i>
+                            <span class="text nav-text">Defective</span>
+                            <!-- <button class="button-65" role="button"> Defective </button> -->
+                        </a>
+                    </li>
+                    
+                    <li class="">
+                        <a href="/manage">
+                            <i class='bx bx-cog icon' ></i>
+                            <span class="text nav-text">Manage Items</span>
+                            <!-- <form action = "/manage" method="POST">
+                            <button class="button-65" role="button" type="submit">Manage Items</button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+    
+                </ul>
+            </div>
+            
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span></a>
+                        <!-- <form action='/'>
+                        <button class="button-65" role="button" type = 'submit'>Logout</button>
+                    </form>
+                     -->
+                </li>
+    
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+    
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+                
+            </div>
+        </div>
+    
+    </nav>
+    <span id="message" style="    color: black; margin-top: -664px;margin-left: -120px;margin-right: 30px;font-size: 20px;">{{msg}}</span> 
+
+     <!-- <section class="home">  -->
+        <!-- <div class="text"> Mang items dashboard </div>  -->
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+ 
+<form method="post">
+        <div class="sc_box">  
+            <div class="input-box">
+              <i class="uil uil-search"></i>
+              <input type="text" placeholder="Search here..." name="search_id" id="search_id" value="{{ response.p_id }}">
+              <button class="button" type="submit" formaction="/search">Search</button>
+            </div>
+        </div>
+</form>
+
+    <!-- </section> -->
+<!-- -------------------------------------------------------------------------------------------------------- -->
+<!-- <section class="home">  -->
+   
+<div class="container">
+    <header>Manage Products</header>
+    <form method="post">
+    <!-- <form action="#"> -->
+        <div class="form first">
+            <div class="details personal">
+                <span class="title">Product Details</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>product ID</label>
+                        <input type="text" placeholder="Enter prduct ID" name="p_id" id="p_id"value="{{ response.p_id }}"required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Product Name</label>
+                        <input type="text" placeholder="Enter Product Name" name="p_name" id="p_name" value="{{ response.p_name }}"required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Quantity</label>
+                        <input type="number" min="1" max="1000" placeholder="Qty" name="qty" id="qty" value="{{ response.qty }}"required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Minimum value</label>
+                        <input type="number" min="1" max="1000" placeholder="Min value" name="min" id="min"value="{{ response.min }}" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Maximum value</label>
+                        <input type="number" min="1" max="1000" placeholder="Max value" name="max" id="max" value="{{ response.max }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details ID">
+                <span class="title">Supplier Details</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Buy Rate</label>
+                        <input type="text" placeholder="Buy Rate" name="buy" id="buy" value="{{ response.buy }}" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Sell Rate</label>
+                        <input type="text" placeholder="Sell Rate" name="sell" id="sell" value="{{ response.sell }}" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Expiry Date</label>
+                        <input type="date" placeholder="Expiry Date" name="exp" id="exp" value="{{ response.exp }}" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Supplier Name</label>
+                        <input type="text" placeholder="Supplier Name" name="s_name" id="s_name" value="{{ response.s_name }}" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Supplier Email</label>
+                        <input type="email" placeholder="Supplier Email" name="s_mail" id="s_mail" value="{{ response.s_mail }}" required>
+                    </div>
+                    <button class="sumbit" type="submit" formaction="/add" >
+                        <span class="btnText">Save</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+
+                    <button type="reset" class="reset">
+                        <span class="btnText">Clear</span>
+                        <!-- <i class="uil uil-navigator"></i> -->
+                    </button>
+
+                    <button class="sumbit" type="submit" formaction="/update" >
+                        <span class="btnText">Update</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+
+                    <button class="sumbit" type="submit" formaction="/delete">
+                        <span class="btnText">Delete</span>
+                         <i class="uil uil-navigator"></i> 
+                    </button>
+                    
+                </div>
+            </div> 
+        </div>
+    </form>
+</div>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------ -->
+
+
+    <!-- </section> -->
+
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+</body>
+</html>

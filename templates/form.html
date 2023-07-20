@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    h1>Add Form Data to Table</h1>
+
+	<form action="/generate_invoice" method="post">
+		
+
+        <label for="fname">Customer name:</label>
+        <input type="text" id="customer_name" name="customer_name"><br><br>
+
+        <label for="fname">Customer Mobile:</label>
+        <input type="text" id="customer_mobile" name="customer_mobile"><br><br>
+      
+        <label for="fname">Invoice_number:</label>
+        <input type="number" id="invoice_number" name="invoice_number"><br><br>
+      
+        <label for="fname">Bill Date:</label>
+        <input type="date" id="invoice_date" name="invoice_date"><br><br>
+
+        <label for="fname">Bill Due_Date:</label>
+        <input type="date" id="invoice_due_date" name="invoice_due_date"><br><br>
+        
+        <label for="fname">Product Description:</label>
+        <input type="text" id="product_description" name="product_description"><br><br>
+
+        <label for="fname">Product Quantity:</label>
+        <input type="number" id="product_quantity" name="product_quantity"><br><br>
+
+        <label for="fname">Product Price:</label>
+        <input type="number" id="product_price" name="product_price"><br><br>
+        <input type = 'submit' value = 'invoice'>Submit</input>
+
+    </form>
+      
+</body>
+</html>

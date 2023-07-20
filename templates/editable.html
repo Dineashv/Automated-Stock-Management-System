@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Status</title>
+  </head>
+  <body>
+    <h1>Payment Status</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice Number</th>
+          <th>Customer Name</th>
+          <th>Amount Due</th>
+          <th>Payment Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>INV-001</td>
+          <td>John Doe</td>
+          <td>$100</td>
+          <td><button onclick="togglePaymentStatus('INV-001')">Not Paid</button></td>
+        </tr>
+        <tr>
+          <td>INV-002</td>
+          <td>Jane Doe</td>
+          <td>$200</td>
+          <td><button onclick="togglePaymentStatus('INV-002')">Not Paid</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function togglePaymentStatus(invoiceNumber) {
+        const button = event.target;
+        const newStatus = button.innerText === "Not Paid" ? "Paid" : "Not Paid";
+        button.innerText = newStatus;
+        
+        // Make an Ajax request to Flask app to update the payment status in the database
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/update_payment_status");
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify({invoice_number: invoiceNumber, payment_status: newStatus}));
+      }
+    </script>
+  </body>
+</html>

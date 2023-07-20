@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Pamphlet</title>
+	<style>
+		.container {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+			padding: 20px;
+			width: 97%;
+            height:100%
+			/* border-radius: 5px; */
+			/* box-shadow: 0px 0px 10px #888888; */
+		}
+
+		h1 {
+			font-size: 50px;
+			font-weight: bold;
+			color: #f22f46;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			font-size: 28px;
+			font-weight: bold;
+			color: #f22f46;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		p {
+			font-size: 36px;
+			line-height: 1.5;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			color: #666;
+			text-align: justify;
+		}
+
+		ul {
+			margin-top: 0px;
+			margin-bottom: 10px;
+			padding-left: 20px;
+			list-style: none;
+			font-size: 16px;
+			color: #555;
+			text-align: justify;
+			margin-left: -20px;
+			margin-top: 20px;
+			padding-top: 10px;
+			border-top: 1px solid #ddd;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		li {
+			margin-bottom: 5px;
+		}
+
+		.price {
+			color: #f22f46;
+			font-size: 100px;
+			font-weight: bold;
+			margin-right: 20px;
+		}
+
+		.savings {
+			font-size: 70px;
+			font-weight: bold;
+			color: #66b833;
+		}
+
+		.expiry {
+			color: #555;
+			font-size: 26px;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		.btn {
+			display: block;
+			background-color: #f22f46;
+			color: #fff;
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px 20px;
+			margin-top: 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.btn:hover {
+			background-color: #d11d3e;
+		}
+
+		.shop-name {
+			font-size: 44px;
+			font-weight: bold;
+			color: #f22f46;
+			margin-top: 30px;
+			margin-bottom: 10px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.shop-address {
+			font-size: 36px;
+			line-height: 1.5;
+			margin-top: 0px;
+			margin-bottom: 10px;
+			color: #666;
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<h1>Hurry up!! Limited Period Offer</h1>
+		<h2>{{product}}</h2>
+		<p>"Looking for the best deals on premium products? Look no further than our Store! We're excited to offer a limited-time discount on our top-selling Product. Enjoy the discount on this high-quality product, and stock up for all your needs. But don't wait too long - this offer won't last forever. Visit our Store today and take advantage of this incredible deal!"</p>
+		<ul>
+			
+			<li><strong style="font-size: 100px;">Offer Price:</strong> <span class="price">Rs.{{price}} Only/-</span> <span class="savings">Discount {{discount}}%</span></li>
+		</ul>
+		<p class="expiry">Offer expires within a week.</p>
+		<a href="#" class="btn">Buy Now</a>
+		<div class="shop-name">Supermarket Name</div>
+		<div class="shop-address">1234 Main St, City, State ZIP</div>
+	</div>
+</body>
+</html>
+

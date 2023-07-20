@@ -1,0 +1,87 @@
+
+    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Purchase Order</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #wrapper {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      #footer {
+        margin-top: 20px;
+        text-align: right;
+      }
+      #footer p {
+        margin: 0;
+      }
+      .info {
+        display: flex;
+        justify-content: space-between;
+      }
+      .info p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Purchase Order</h1>
+      <p>------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+      <div class="info">
+        <div>
+          <p><strong>Order Number:</strong> {{order_id}}</p><br>
+          <p><strong>Order Date:</strong> {{date}}</p><br>
+          <p><strong>Order Date:</strong> {{timenow}}</p><br>
+        </div>
+        <div>
+          <p><strong>Ship Order to:</strong> Tate(Owner) </p><br>
+          <p><strong>Address:</strong> No:10, Shellington Road, Canwas Town, Dubai-187 643 </p>
+        </div>
+      </div>
+      <br><br>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+            
+          <tr>
+                <td>{{p_name}}</td>
+				<td>{{units_needed}}</td>
+			
+          </tr>
+          
+          
+        </tbody>
+        
+      </table>
+      <div id="footer">
+        <p>Deliver products as soon as possible!</p>
+      </div>
+    </div>
+  </body>
+</html>

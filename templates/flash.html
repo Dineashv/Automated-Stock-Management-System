@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flash Message Example</title>
+	<style>
+		.flash-message {
+			background-color: #4CAF50;
+			color: white;
+			text-align: center;
+			padding: 10px;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 9999;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+		.flash-message.show {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="flash-message">
+		<p>This is a flash message!</p>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var flash = document.querySelector('.flash-message');
+			flash.classList.add('show');
+			setTimeout(function(){
+				flash.classList.remove('show');
+			}, 3000);
+		});
+	</script>
+</body>
+</html>

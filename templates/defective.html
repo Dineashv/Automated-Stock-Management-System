@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="static\design.css">
+    
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+    <style>
+        h1 {
+			color: #6b8eff;
+			text-align: center;
+			margin-top: 25px;
+		}
+		form {
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			max-width: 1000px;
+			margin: auto;
+			background-color: #e9e9e9;
+			padding: 20px;
+			box-shadow: 0px 0px 10px #ccc;
+			border-radius: 10px;
+			margin-top: 25px;
+		}
+		input[type=text],[type=number],select, textarea {
+			width: 95%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+			margin-bottom: 10px;
+		}
+
+		label {
+			font-weight: bold;
+			color: #555;
+		}
+		input[type=submit] {
+			background-color: #6b90ff;
+			color: #fff;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-left: 8%;
+		}
+		input[type=submit]:hover {
+			background-color: #f44336;
+		}
+        button{
+            background-color: #6b90ff;
+			color: #fff;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-left: 8%;
+        }
+        button:hover{
+            background-color: #f44336;
+        }
+		.error-message {
+			color: #ff6b6b;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		table {
+			
+            border-collapse: collapse;
+            margin: auto;
+            /* margin: 120px; */
+			
+            width: 70%;
+            margin-top: 40px;
+			border-radius: 35px 25px 25px 25px;
+			box-shadow: 0 0px 120px rgba(0, 0, 0, 0.15);
+			
+            
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #1cebb7;
+            color: white;
+        }
+		tr{
+			height: 30px;
+		}
+        tr:nth-child(even){background-color: #d7d7d9}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color:  #1cebeb;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 37%;
+}
+
+.closesub {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closesub:hover,
+.closesub:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+    </style>
+    
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="static\logo.jpg" alt="logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Automated</span>
+                    <span class="profession">Stock Management</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/dashboard">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                            <!-- <button class="button-65" role="button"> Dashboard </button> -->
+                        
+                          
+                        
+                    </li>
+                    <!-- <form action="/billing" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/billing_system">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Billing System</span>
+                            <!-- <button class="button-65" role="button" type="submit"> Billing System </button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+                    <!-- <form action="/myorders" method="post"></form> -->
+                    <li class="nav-link">
+                        <a href="/myorders">
+                            <i class='bx bx-shopping-bag icon'></i>
+                            <span class="text nav-text">My Orders</span>
+                            <!-- <button class="button-65" role="button"> My Orders </button>
+                        </form> -->
+                    </a>
+                    </li>
+                    <!-- <form action="/invoicepage" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/invoicepage">
+                            <i class='bx bx-file icon' ></i>
+                            <span class="text nav-text">Invoices</span>
+                            <!-- <button class="button-65" role="button"> Invoices </button>
+                        </form> -->
+                    </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-exit bx-rotate-180 icon' ></i>
+                            <span class="text nav-text">Defective</span>
+                            <!-- <button class="button-65" role="button"> Defective </button> -->
+                        </a>
+                    </li>
+                    
+                    <li class="">
+                        <a href="/manage">
+                            <i class='bx bx-cog icon' ></i>
+                            <span class="text nav-text">Manage Items</span>
+                            <!-- <form action = "/manage" method="POST">
+                            <button class="button-65" role="button" type="submit">Manage Items</button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+
+                </ul>
+            </div>
+            
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span></a>
+                        <!-- <form action='/'>
+                        <button class="button-65" role="button" type = 'submit'>Logout</button>
+                    </form>
+                     -->
+                </li>
+
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+                
+            </div>
+        </div>
+
+    </nav>
+
+     <section class="home">  
+         <div class="text"></div> 
+         <h1>Defective Product Report Form</h1>
+	<div class="exp">
+	<form method="post">
+		<label for="product-name">Product Name</label>
+		<!-- <input type="text" id="product-name" name="product-name" required> -->
+        <select name="product_name" id="product_name">
+            {% for product in products %}
+              <option value="{{ product }}">{{ product }}</option>
+            {% endfor %}
+          </select>
+
+		<label for="product-code">Product Quantity</label>
+		<input type="number" id="product-quantity" name="product-quantity">
+
+		<input type="submit" value="Add +" formaction="/add_defective">
+		<!-- <input type="submit" value="Send Offer to customers"formaction="/combo_customers"> -->
+       
+		<input type="submit" value="Check Expiry" formaction="/expiry">
+        
+	<br><br><br><br>
+	
+</div>
+
+
+
+	<table>
+     
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Expiry Date</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+			<tr>
+				<td>{{ item[0] }}</td>
+				<td>{{ item[1] }}</td>
+				<td>{{ item[2] }}</td>
+				<td>{{ item[3] }}</td>
+			</tr>
+		{% endfor %}
+        <tr>
+          
+
+            
+			<td colspan="3" style="text-align:right">Usual Profit:</td>
+			<td>{{ usual_profit }}</td>
+		</tr>
+		<tr>
+           
+			<td colspan="3" style="text-align:right">Combo Profit:</td>
+			<td>{{ combo_profit }}</td>
+		</tr>
+        <tr>
+            <td colspan="3" style="text-align:right">Normal Price:</td>
+			<td>{{ normal_price }}</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:right">Offer Price:</td>
+			<td>{{ offer_price }}</td>
+        </tr>
+        </tbody>
+        
+      </table>
+  
+
+    </form>
+  
+
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+// searchBtn.addEventListener("click" , () =>{
+//     sidebar.classList.remove("close");
+// })
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" style="font-size: 40px;font-weight: 200;text-align:center;color: rgb(0, 0, 0);"><b>COMBO OFFER</h4>
+            </div>
+         <br>   <div class="modal-body" style="font-size: x-large;font-family: math;color: rgb(0, 0, 0);">
+                <!-- Vh No : <input type="text" name="vhno" id="vhno"> <br><br>
+                Assignment No : <input type="text" name="assignment_no" id="assignment_no"><br><br>
+                Mark : <input type="text" name="mark" id="mark"><br><br> -->
+                <p>Usual Profit: {{usual_profit}}</p>
+                <p>Combo Profit: {{combo_profit}}</p>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="button-35"  >OK</button> &nbsp; -->
+            
+              <button type="button" class="button-35" data-dismiss="modal">CANCEL</button>
+            </div>
+          </div>
+          
+        </div>
+    </div> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script>
+    
+    var modal = document.getElementById("myModal");
+    
+    var btn = document.getElementById("myBtn1");
+    
+    var span = document.getElementsByClassName("close")[0];
+    </script>
+
+</body>
+
+</html>

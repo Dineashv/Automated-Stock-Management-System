@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+
+    <link rel="stylesheet" href="static\design.css">  
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
+    <style>
+      	table, th, td {
+			border: 2px solid black;
+			border-collapse: collapse;
+			padding: 12px;
+			text-align: center;
+			align-items: center;
+		}
+		th {
+			background-color: lightgray;
+		}
+		.text-justify {
+    margin: auto;
+	  vertical-align: middle;
+	  height: 100%;
+	  width: 40%;
+  }
+    </style>
+    
+    
+</head>
+<body>
+  <nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="static\logo.jpg" alt="logo">
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">Automated</span>
+                <span class="profession">Stock Management</span>
+            </div>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <!-- <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li> -->
+
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="/dashboard">
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text">Dashboard</span>
+                    </a>
+                        <!-- <button class="button-65" role="button"> Dashboard </button> -->
+                    
+                      
+                    
+                </li>
+                <!-- <form action="/billing" method="post"> -->
+                <li class="nav-link">
+                    <a href="/billing">
+                        <i class='bx bx-cart icon' ></i>
+                        <span class="text nav-text">Billing System</span>
+                        <!-- <button class="button-65" role="button" type="submit"> Billing System </button>
+                    </form> -->
+                </a>
+                    
+                </li>
+                <!-- <form action="/myorders" method="post"></form> -->
+                <li class="nav-link">
+                    <a href="/myorders">
+                        <i class='bx bx-shopping-bag icon'></i>
+                        <span class="text nav-text">My Orders</span>
+                        <!-- <button class="button-65" role="button"> My Orders </button>
+                    </form> -->
+                </a>
+                </li>
+                <!-- <form action="/invoicepage" method="post"> -->
+                <li class="nav-link">
+                    <a href="/invoicepage">
+                        <i class='bx bx-file icon' ></i>
+                        <span class="text nav-text">Invoices</span>
+                        <!-- <button class="button-65" role="button"> Invoices </button>
+                    </form> -->
+                </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#">
+                        <i class='bx bx-exit bx-rotate-180 icon' ></i>
+                        <span class="text nav-text">Defective</span>
+                        <!-- <button class="button-65" role="button"> Defective </button> -->
+                    </a>
+                </li>
+                
+                <li class="">
+                    <a href="/manage">
+                        <i class='bx bx-cog icon' ></i>
+                        <span class="text nav-text">Manage Items</span>
+                        <!-- <form action = "/manage" method="POST">
+                        <button class="button-65" role="button" type="submit">Manage Items</button>
+                    </form> -->
+                </a>
+                    
+                </li>
+
+            </ul>
+        </div>
+        
+        <div class="bottom-content">
+            <li class="">
+                <a href="/">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text">Logout</span></a>
+                    <!-- <form action='/'>
+                    <button class="button-65" role="button" type = 'submit'>Logout</button>
+                </form>
+                 -->
+            </li>
+
+            <!-- <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li> -->
+            
+        </div>
+    </div>
+
+</nav>
+
+     <!-- <section class="home">   -->
+        <!-- <div class="container"> 
+         
+         
+         <form>  
+
+            <div class="form-group">
+              <label>Customer name:</label>
+              <input type="text" id="fname" name="fname" class="form-control" required="">
+            </div> 
+              
+            <div class="form-group">
+              <label>Customer contact No:</label>
+              <input type="text" id="fname" name="fname" class="form-control" required="">
+            </div> 
+              
+            <div class="form-group">
+              <label>Bill No:</label>
+              <input type="text" id="fname" name="fname" class="form-control" required=""> 
+            </div>  -->
+
+         
+
+            <!-- <div class="form-group">  
+                <label>Product:</label>  
+                <input type="text" name="product" class="form-control"  required="">  
+              </div>  
+
+                <div class="form-group">  
+                    <label>Quantity:</label>  
+                    <input type="number" name="quantity" class="form-control"  required="">  
+                  </div>
+                  
+                  <div class="form-group">  
+                    <label>Price:</label>  
+                    <input type="text" name="price" class="form-control"  required="">  
+                  </div> 
+              
+              
+                   
+                  <input type="submit" class="btn btn-success save-btn"> <br><br>
+              </form>  -->
+                
+                <!-- <input type="submit" value="Submit"> -->
+            
+            
+<!-- </form>       -->
+
+
+<!-- <table class="table table-bordered data-table">  
+    <thead>  
+      <th>Product</th>  
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Amount</th>  
+      <th>Action</th>  
+    </thead>  
+    <tbody>  
+      
+    </tbody>  
+  </table>  
+     
+</div>  
+     
+<script type="text/javascript">
+
+     
+    $("#noob").submit(function(e){  
+        e.preventDefault();  
+        var product = $("input[name='product']").val();  
+        var price = $("input[name='price']").val();
+        var quantity = $("input[name='quantity']").val();  
+        var amount = quantity * price;
+       
+        $(".data-table tbody").append("<tr data-product='"+product+"' data-quantity='"+price+"' data-price='"+quantity+"' data-quantity='"+amount+"'><td>"+product+"</td><td>"+price+"</td><td>"+quantity+"</td><td>"+amount+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");  
+      
+        $("input[name='product']").val('');  
+        $("input[name='price']").val('');  
+        $("input[name='quantity']").val('');  
+        $(amount).val('');
+    });  
+     
+    $("body").on("click", ".btn-delete", function(){  
+        $(this).parents("tr").remove();  
+    }); 
+
+    </script> -->
+    <section class="home">
+      <!-- <div class="container">
+        <div class="text-justify"> -->
+          <div class="text">Billing System</div>
+
+<div class="container">
+        <div class="text-justify">
+  
+  <h1>Invoice</h1>
+	<!--  -->
+	<form method="POST" action="{{ url_for('invoice') }}">
+		<label for="customer_name">Customer Name:</label>
+		<input type="text" id="customer_name" name="customer_name" value="{{ customer_name }}"  required>
+		<br><br>
+		<label for="customer_address">Customer Email:</label>
+		<input type="text" id="customer_address" name="customer_address"value="{{ customer_address }}" required>
+		<br>
+		<br>
+		<input type="submit" value="Generate Invoice"><br><br>
+		<button type="button" onclick="addProduct()">Add Product</button><br><br>
+    <button type="reset" class="reset">Clear</button><br><br>
+
+		<!-- {% for X in response %}
+		<li>{{response}}</li>
+		{% endfor %} -->
+		<table>
+			<tr>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Amount</th>
+			</tr>
+            <!-- <label for="tax">Tax (%):</label>
+		<input type="number" min="0" step="0.01" id="tax" name="tax" required> -->
+		<!-- <br><br>
+		<br> -->
+		
+			{% for X in response %}
+			<tr>
+				
+				<td>{{X.product_name}}</td>
+				<td>{{X.product_quantity}}</td>
+				<td>{{X.product_price}}</td>
+				<td>{{X.amount}}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="3">Subtotal:</td>
+				<td>{{ subtotal }}</td>
+			</tr>
+			<tr>
+				<td colspan="3">Tax ({{ tax }}%):</td>
+				<td>{{ tax_amount }}</td>
+			</tr>
+			<tr>
+				<td colspan="3">Total:</td>
+				<td>{{ total }}</td>
+			</tr>
+		</table>
+		<br>
+		<!-- <label for="tax">Tax (%):</label>
+		<input type="number" min="0" step="0.01" id="tax" name="tax" required>
+		<br>
+		<br>
+		<input type="submit" value="Generate Invoice">
+		<button type="button" onclick="addProduct()">Add Product</button> -->
+	</form>
+	<script>
+		function addProduct() {
+			var table = document.querySelector('table');
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount - 3);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+			cell1.innerHTML = '<input type="text" name="product_name[]" required>';
+			cell2.innerHTML = '<input type="number" min="1" name="product_quantity[]" onchange="updateAmount(this)" required>';
+			cell3.innerHTML = '<input type="number" min="0" step="0.01" name="product_price[]" onchange="updateAmount(this)" required>';
+			cell4.innerHTML = '';
+		}
+
+        function updateAmount(input) {
+			var row = input.parentNode.parentNode;
+			var quantity = parseFloat(row.cells[1].querySelector('input').value);
+			var price = parseFloat(row.cells[2].querySelector('input').value);
+			row.cells[3].innerHTML = (quantity * price).toFixed(2);
+		}
+	</script>
+  <!-- </div>
+</div> -->
+
+</section>
+ 
+   
+     
+  
+      
+    
+        <!-- <div class="form-group">
+          <label>Customer name:</label>
+          <input type="text" id="fname" name="fname" class="form-control" required="">
+        </div> 
+          
+        <div class="form-group">
+          <label>Customer contact No:</label>
+          <input type="text" id="fname" name="fname" class="form-control" required="">
+        </div> 
+          
+        <div class="form-group">
+          <label>Bill No:</label>
+          <input type="text" id="fname" name="fname" class="form-control" required=""> 
+        </div> 
+        
+  
+        
+            
+        <form action="/dropdown" method="post">           
+          <div class="form-group">
+              <label for="column-select">Choose Product:</label>
+              <select id="column-select" name="data">
+                  {% for row in data %}
+                      <option value="{{ row[0] }}" name="product">{{ row[0] }}</option>
+                  {% endfor %}
+              </select>
+          </div>
+        
+      <div class="form-group">  
+        <label>Quantity:</label>  
+        <input type="number" name="quantity" class="form-control"  required="">  
+      </div>
+      
+      <div class="form-group">  
+        <label>Price:</label>  
+        <input type="text" name="price" class="form-control"  required="">  
+      </div> 
+  
+  
+       
+      <button type="submit" class="btn btn-success save-btn">Add Items</button>  <br><br>
+  </form>   -->
+     <!-- <br/> 
+    <div id="wrapper">
+      <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+      <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      
+      </tr>
+      
+      <tr id="row1">
+      <td id="name_row1"><select name="dropdown1">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select></td>
+      <td id="country_row1"><input type="number"></td>
+      
+      <td>
+      <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+      <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')">
+      <input type="button" value="Delete" class="delete" onclick="delete_row('1')">
+      </td>
+      </tr>
+      
+      <tr>
+      <td><input type="text" id="new_name"></td>
+      <td><input type="text" id="new_country"></td>
+      
+      <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+      </tr>
+      
+      </table>
+      </div>  -->
+    
+    <!-- <table class="table table-bordered data-table">  
+      <thead>  
+        <th>Product</th>  
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Amount</th>  
+        <th>Action</th>  
+      </thead>  
+      <tbody>  
+        
+      </tbody>  
+    </table>  
+       
+  </div>  
+       
+  <script type="text/javascript">  
+       
+      $("form").submit(function(e){  
+          e.preventDefault();  
+          var product = $('#product').val();  
+          var price = $("input[name='price']").val();
+          var quantity = $("input[name='quantity']").val();  
+          var amount = quantity * price;
+         
+          $(".data-table tbody").append("<tr data-product='"+product+"' data-quantity='"+price+"' data-price='"+quantity+"' data-quantity='"+amount+"'><td>"+product+"</td><td>"+price+"</td><td>"+quantity+"</td><td>"+amount+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");  
+        
+          // $('product').val('');  
+          $("input[name='price']").val('');  
+          $("input[name='quantity']").val('');  
+          $(amount).val('');
+      });  
+       
+      $("body").on("click", ".btn-delete", function(){  
+          $(this).parents("tr").remove();  
+      });   -->
+        
+      <!-- // $("body").on("click", ".btn-edit", function(){  
+      //     var product = $(this).parents("tr").attr('data-product');  
+      //     var price = $(this).parents("tr").attr('data-price');  
+      //     var quantity = $(this).parents("tr").attr('data-quantity');  
+      //     var amount = $(this).parents("tr").attr('data-amount');  
+        
+      //     $(this).parents("tr").find("td:eq(0)").html('<input name="edit_name" value="'+product+'">');  
+      //     $(this).parents("tr").find("td:eq(1)").html('<input name="edit_email" value="'+price+'">');  
+      //     $(this).parents("tr").find("td:eq(0)").html('<input name="edit_name" value="'+quantity+'">');  
+      //     $(this).parents("tr").find("td:eq(1)").html('<input name="edit_email" value="'+amount+'">'); 
+        
+      //     $(this).parents("tr").find("td:eq(2)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")  
+      //     $(this).hide();  
+      // });  
+       
+      // $("body").on("click", ".btn-cancel", function(){  
+           
+      //     var product = $(this).parents("tr").attr('data-product');  
+      //     var price = $(this).parents("tr").attr('data-price');  
+      //     var quantity = $(this).parents("tr").attr('data-quantity');  
+      //     var amount = $(this).parents("tr").attr('data-amount'); 
+        
+      //     $(this).parents("tr").find("td:eq(0)").text(product);  
+      //     $(this).parents("tr").find("td:eq(1)").text(price);  
+      //     $(this).parents("tr").find("td:eq(0)").text(quantity);  
+      //     $(this).parents("tr").find("td:eq(1)").text(amount);
+       
+      //     $(this).parents("tr").find(".btn-edit").show();  
+      //     $(this).parents("tr").find(".btn-update").remove();  
+      //     $(this).parents("tr").find(".btn-cancel").remove();  
+      // });  
+       
+      // $("body").on("click", ".btn-update", function(){  
+      //     var product = $(this).parents("tr").find("input[name='edit_product']").val();  
+      //     var price = $(this).parents("tr").find("input[name='edit_price']").val();  
+      //     var quantity = $(this).parents("tr").find("input[name='edit_quantity']").val();  
+      //     var amount = $(this).parents("tr").find("input[name='edit_amount']").val();
+        
+      //     $(this).parents("tr").find("td:eq(0)").text(product);  
+      //     $(this).parents("tr").find("td:eq(1)").text(price);  
+      //     $(this).parents("tr").find("td:eq(2)").text(quantity);  
+      //     $(this).parents("tr").find("td:eq(3)").text(amount); 
+         
+      //     $(this).parents("tr").attr('data-name', product);  
+      //     $(this).parents("tr").attr('data-email', price);  
+      //     $(this).parents("tr").attr('data-name', quantity);  
+      //     $(this).parents("tr").attr('data-email', amount);  
+        
+      //     $(this).parents("tr").find(".btn-edit").show();  
+      //     $(this).parents("tr").find(".btn-cancel").remove();  
+      //     $(this).parents("tr").find(".btn-update").remove();  
+      // });  
+        
+  // </script>  -->
+     
+
+
+     <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+
+
+</body>
+</html>

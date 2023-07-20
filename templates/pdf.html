@@ -1,0 +1,101 @@
+
+    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Purchase Order</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #wrapper {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      #footer {
+        margin-top: 20px;
+        text-align: right;
+      }
+      #footer p {
+        margin: 0;
+      }
+      .info {
+        display: flex;
+        justify-content: space-between;
+      }
+      .info p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Purchase Order</h1>
+      <p>------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+      <div class="info">
+        <div>
+          <p><strong>Order Number:</strong> 123456</p><br>
+          <p><strong>Order Date:</strong> January 1, 2023</p><br>
+        </div>
+        <div>
+          <p><strong>Ship Order to:</strong> Tate(Owner) </p><br>
+          <p><strong>Address:</strong> No:10, Shellington Road, Canwas Town, Dubai-187 643 </p>
+        </div>
+      </div>
+      <br><br>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for X in response %}
+          <tr>
+                <td>{{X.product_name}}</td>
+				<td>{{X.product_quantity}}</td>
+				<td>{{X.product_price}}</td>
+				<td>{{X.amount}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Subtotal:</td>
+			<td>{{ subtotal }}</td>
+          </tr>
+          <tr>
+            <td colspan="3">Tax ({{ tax }}%):</td>
+            <td>{{ tax_amount }}</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total:</td>
+			<td>{{ total }}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="footer">
+        <p>Deliver products as soon as possible!</p>
+      </div>
+    </div>
+  </body>
+</html>

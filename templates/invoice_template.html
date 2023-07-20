@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Invoice</title>
+  </head>
+  <body>
+    <h1>Invoice</h1>
+    <p>Customer name: {{ customer_name }}</p>
+    <p>Invoice number: {{ invoice_number }}</p>
+    <p>Invoice date: {{ invoice_date }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+         
+          <td>{{ product_quantity }}</td>
+          <td>{{ product_price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

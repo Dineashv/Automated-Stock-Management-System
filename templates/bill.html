@@ -1,0 +1,101 @@
+
+    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #wrapper {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      #footer {
+        margin-top: 20px;
+        text-align: right;
+      }
+      #footer p {
+        margin: 0;
+      }
+      .info {
+        display: flex;
+        justify-content: space-between;
+      }
+      .info p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Invoice</h1>
+      <div class="info">
+        <div>
+          <p><strong>Invoice Number:</strong> {{bill_no}}</p><br>
+          <p><strong>Invoice Date:</strong> {{date}}</p><br>
+          <p><strong>Invoice Time:</strong> {{timenow}}</p><br>
+        </div>
+        <div>
+          <p><strong>Customer Name:</strong> {{ customer_name }}</p><br>
+          <p><strong>Customer Email:</strong> {{ customer_address }}</p>
+        </div>
+      </div>
+      <br><br>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for X in response %}
+          <tr>
+        <td>{{X.product_name}}</td>
+				<td>{{X.quantity}}</td>
+				<td>{{X.price}}</td>
+				<td>{{X.total_price}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Subtotal:</td>
+			<td>{{ subtotal }}</td>
+          </tr>
+          <tr>
+            <td colspan="3">Tax 7%:</td>
+            <td>{{ tax_amount }}</td>
+          </tr>
+          <tr>
+            <td colspan="3">Total:</td>
+			<td>{{ total }}</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div id="footer">
+        <p>Thank you for Purchasing! Please Visit again!!...</p>
+      </div>
+    </div>
+  </body>
+</html>

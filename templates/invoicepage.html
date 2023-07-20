@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="static\design.css">
+    
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!--<title>Dashboard Sidebar Menu</title>--> 
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            /* margin: auto; */
+            margin-left: 30px;
+            width: 95%;
+            margin-top: 50px;
+            
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #1c57eb;
+            color: white;
+        }
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+    
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="static\logo.jpg" alt="logo">
+                </span>
+    
+                <div class="text logo-text">
+                    <span class="name">Automated</span>
+                    <span class="profession">Stock Management</span>
+                </div>
+            </div>
+    
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+    
+        <div class="menu-bar">
+            <div class="menu">
+    
+                <!-- <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li> -->
+    
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/dashboard">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                            <!-- <button class="button-65" role="button"> Dashboard </button> -->
+                        
+                          
+                        
+                    </li>
+                    <!-- <form action="/billing" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/billing_system">
+                            <i class='bx bx-cart icon' ></i>
+                            <span class="text nav-text">Billing System</span>
+                            <!-- <button class="button-65" role="button" type="submit"> Billing System </button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+                    <!-- <form action="/myorders" method="post"></form> -->
+                    <li class="nav-link">
+                        <a href="/myorders">
+                            <i class='bx bx-shopping-bag icon'></i>
+                            <span class="text nav-text">My Orders</span>
+                            <!-- <button class="button-65" role="button"> My Orders </button>
+                        </form> -->
+                    </a>
+                    </li>
+                    <!-- <form action="/invoicepage" method="post"> -->
+                    <li class="nav-link">
+                        <a href="/invoicepage">
+                            <i class='bx bx-file icon' ></i>
+                            <span class="text nav-text">Invoices</span>
+                            <!-- <button class="button-65" role="button"> Invoices </button>
+                        </form> -->
+                    </a>
+                    </li>
+    
+                    <li class="nav-link">
+                        <a href="/defective">
+                            <i class='bx bx-exit bx-rotate-180 icon' ></i>
+                            <span class="text nav-text">Defective</span>
+                            <!-- <button class="button-65" role="button"> Defective </button> -->
+                        </a>
+                    </li>
+                    
+                    <li class="">
+                        <a href="/manage">
+                            <i class='bx bx-cog icon' ></i>
+                            <span class="text nav-text">Manage Items</span>
+                            <!-- <form action = "/manage" method="POST">
+                            <button class="button-65" role="button" type="submit">Manage Items</button>
+                        </form> -->
+                    </a>
+                        
+                    </li>
+    
+                </ul>
+            </div>
+            
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span></a>
+                        <!-- <form action='/'>
+                        <button class="button-65" role="button" type = 'submit'>Logout</button>
+                    </form>
+                     -->
+                </li>
+    
+                <!-- <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+    
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li> -->
+                
+            </div>
+        </div>
+    
+    </nav>
+     
+         <section class="home">  
+            <div class="text"> Invoices </div>
+            <table>
+               <thead>
+                   <tr>
+                           <th>Bill.No</th>
+                           <th>Date & Time</th>
+                           <th>Customer Name</th>
+                           <th>Customer Mobile</th>
+                           <th>Subtotal</th>
+                           <th>Tax</th>
+                           <th>Total</th>
+                           <th>Invoice</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {% for row in rows %}
+                   <tr>
+                           
+                           <td>{{ row[0] }}</td>
+                           <td>{{ row[1] }}</td>
+                           <td>{{ row[2] }}</td>
+                           <td>{{ row[3] }}</td>
+                           <td>{{ row[4] }}</td>
+                           <td>{{ row[5] }}</td>
+                           <td>{{ row[6] }}</td>
+                       <td><a href="/view_pdf/{{ row[0] }}" target="blank">View</a></td>
+                   </tr>
+                   {% endfor %}
+               </tbody>
+           </table>
+         
+         
+
+
+    </section>
+
+    <script>
+        const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+})
+
+searchBtn.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
+
+modeSwitch.addEventListener("click" , () =>{
+    body.classList.toggle("dark");
+    
+    if(body.classList.contains("dark")){
+        modeText.innerText = "Light mode";
+    }else{
+        modeText.innerText = "Dark mode";
+        
+    }
+});
+    </script>
+
+</body>
+</html>

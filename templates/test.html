@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product List</title>
+	<style>
+		/* table, th, td {
+		  border: 2px solid black;
+		  border-collapse: collapse;
+		  padding: 12px;
+		  text-align: center;
+		  align-items: center;
+	  }
+	  th {
+		  background-color: lightgray;
+	  }*/
+	   body { 
+  /* width: 10px; */
+  margin-left: 70px;
+  /* /* margin: auto; */
+  vertical-align: middle;
+  height: 100%;
+  width: 70%;
+}  
+
+
+        
+        table {
+			
+            border-collapse: collapse;
+            /* margin: auto; */
+            margin-left: 0px;
+            width: 95%;
+            margin-top: 50px;
+            
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #eb1caa;
+            color: white;
+        }
+        tr:nth-child(even){background-color: #d7d7d9}
+    
+  </style>
+</head>
+<body>
+	<h1>Supermarket Billing System</h1>
+	<h2>Customer Information</h2>
+	<!-- 1st function -->
+	<form method="POST">
+		<input type="text" name="customer_name" id="customer_name" placeholder="Customer Name" value="{{ customer_name }}">
+		<input type="text" name="customer_address" id="customer_address" placeholder="Customer Mobile" value="{{ customer_address }}"><br>
+		<h2>Product Details</h2>
+		
+
+		<select name="product_name" id="product_name">
+			{% for product in products %}
+				<option value="{{ product }}">{{ product }}</option>
+			{% endfor %}
+		</select>
+		<input type="number" name="quantity" id="quantity" placeholder="Quantity">
+		<input type="submit" value="Add to Billing" formaction="/add_to_billing"><br><br><br>
+		<!-- ------------------- -->
+		
+		<button type="submit" class="submit"  formaction="/page">Clear</button>
+		<!-- -------------------------------------------------------------------------------------------------------- -->
+	
+		<input type="submit" value="Generate Invoice" formaction="/bill"><br><br>
+	
+	
+	<br>
+	<h2>Billing Table</h2>
+	<table id="myTable">
+		<tr>
+			<th>Product Name</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Total Price</th>
+		</tr>
+		{% for item in billing_items %}
+			<tr>
+				<td>{{ item.product_name }}</td>
+				<td>{{ item.price }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>{{ item.total_price }}</td>
+			</tr>
+		{% endfor %}
+		<tr>
+			<td colspan="3" style="text-align:right">Subtotal:</td>
+			<td>{{ subtotal }}</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:right">Tax ({{ tax_rate }}%):</td>
+			<td>{{ tax }}</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:right">Grand Total:</td>
+			<td>{{ grand_total }}</td>
+		</tr>
+	</table>
+<!-- </form> -->
+
+	<!-- <script>
+		function clearTable() {
+			document.getElementById("myTable").innerHTML = "";
+		}
+	</script> -->
+</form>
+</body>
+</html>
